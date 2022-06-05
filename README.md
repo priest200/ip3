@@ -15,7 +15,7 @@
 This is an application for adding different pitches
 
 ## Contributors
-* Joshua Barawa
+* Tyron Njuguna
 ## Setup/Installation Requirements
 * Clone or download the project from my repo https://github.com/priest200/ip3.git
 * Open with pycharm or your prefered IDE
