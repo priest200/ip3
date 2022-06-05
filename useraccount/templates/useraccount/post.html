@@ -1,0 +1,77 @@
+{% extends 'useraccount/base.html' %}
+{% load static %}
+ {% block title %}<title>FakeBook</title>{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'css/post.css' %}">{% endblock  %}
+
+{% block content %}
+
+<div class="home">
+
+ <div class="home-left">
+
+  <ul class="leftLinks">
+  <li class="link"><a class="link-item" href="/"><i class="material-icons">home</i>Home</a> </li>
+   <li class="link"><a class="link-item" href="/add-post/"   data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"  ><i class="material-icons">add_circle</i>Post</a></li>
+  <li class="link"><a class="link-item" href="/"><i class="material-icons">account_circle</i>Profile</a> </li>
+   <li class="link"><a class="link-item" href="/members/logout-user/"><i class="material-icons">logout</i>Logout</a></li>
+
+  </ul>
+
+ </div>
+
+ 
+ <div class="home-center">
+
+    <div class="post">
+     <p class="user-post"><img class="profile" src="{{image.user.profile_photo.url}}" alt="user-image">{{image.user}}</p>
+     <img class="image" src="{{ image.image.url}}" alt="post-image" >
+     <div>
+
+     <p class="caption">{{image.caption}}</p>
+      <div class="post-actions">
+       <div>
+       <span><button class="like-btn"><i class="material-icons">thumb_up</i></button>{{image.like}}</span>
+        <span><button class="comments" type="button"><i class="material-icons">comment</i></button>{{image.comment}}</span>
+        </div>
+        <span>{{image.posted_on}}</span>
+
+   </div>
+   </div>
+
+
+
+     <div id="comments">
+         {% if comments %}
+{% for comment in comments %}
+<div class="user-repo">
+           <span class="user"><img class="profile" src="{{comment.name.profile_photo.url}}"><p>{{comment.name}}</p></span>
+           <p class="comment">{{comment.desc}}</p>
+        </div>`
+{% endfor %}
+         {% else %}
+         <p>No comments</p>
+         {% endif %}
+</div>
+
+      <div class="row align-items-center justify-content-center">
+                <h5>Add  Comment</h5>
+            </div>
+            <br>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit " class=" btn btn-secondary " >Submit</button>
+            </form>
+        </div>
+
+
+    </div>
+
+ </div>
+
+</div>
+
+</body>
+</html>
+
+{% endblock %}
