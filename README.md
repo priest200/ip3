@@ -17,7 +17,7 @@ This is an application for adding different pitches
 ## Contributors
 * Joshua Barawa
 ## Setup/Installation Requirements
-* Clone or download the project from my repo 
+* Clone or download the project from my repo https://github.com/priest200/ip3.git
 * Open with pycharm or your prefered IDE
 * Or you can You can view it using this link https://fakebook-today.herokuapp.com/
 
